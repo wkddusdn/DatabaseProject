@@ -1,0 +1,30 @@
+<h1>게시판 목록</h1>
+
+<form method="get" action="/">
+    <input type="text" name="search" placeholder="제목 검색" value="<%= search %>">
+    <button type="submit">검색</button>
+</form>
+
+<table border="1">
+    <tr>
+        <th>ID</th><th>제목</th><th>작성자</th><th>조회수</th><th>작성일</th>
+    </tr>
+
+    <% list.forEach(item => { %>
+    <tr>
+        <td><%= item.id %></td>
+        <td><a href="/view/<%= item.id %>"><%= item.title %></a></td>
+        <td><%= item.writer %></td>
+        <td><%= item.hit %></td>
+        <td><%= item.created_at %></td>
+    </tr>
+    <% }) %>
+</table>
+
+<a href="/write">글쓰기</a>
+
+<div>
+    <% for(let i=1; i<=totalPage; i++){ %>
+        <a href="/?page=<%= i %>&search=<%= search %>"><%= i %></a>
+    <% } %>
+</div>

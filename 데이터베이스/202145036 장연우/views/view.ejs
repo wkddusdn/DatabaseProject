@@ -1,0 +1,9 @@
+<h1><%= post.title %></h1>
+
+<p>작성자: <%= post.writer %></p>
+<p>조회수: <%= post.hit %></p>
+<p><%= post.content %></p>
+
+<a href="/edit/<%= post.id %>">수정</a>
+<a href="/delete/<%= post.id %>">삭제</a>
+<a href="/">목록</a>
